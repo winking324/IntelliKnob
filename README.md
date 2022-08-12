@@ -86,3 +86,13 @@ PCB 打样和 SMT 贴片都是在[嘉立创](https://www.jlc.com/)完成，当�
 
 ## 2 智能
 
+初步想法是，在 PC 上实现一个软件，重新写一套对应的固件（IntelliKnob），然后通过蓝牙连接到 PC 上，进行一定功能的实现和控制等。
+
+## 3 其他
+
+### 3.1 CNC 问题
+
+默认使用塑料外壳，放在桌面上不固定的话，旋转旋钮容易晃动，可以考虑使用 CNC 雕刻的铝合金外壳。
+
+STL 转 STP 文件，可以参考[FreeCAD 中STL格式转化为STP格式](https://www.bilibili.com/video/BV11v411q766/?vd_source=fd5720629e67b12f90593a5a072198bf)，Mac 中需要点视图 -> 工具台 -> part 显示“零件”到菜单栏上。
+
