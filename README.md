@@ -74,15 +74,25 @@ PCB 打样和 SMT 贴片都是在[嘉立创](https://www.jlc.com/)完成，当�
 
 1. 出现旋转按钮时异常旋转和定位不准确的问题？
 
-   校准：编译并上传后，在监控中启动时按 shift + Y，将校准后的值填写到 `motor_task.cpp` 中的 `zero_electric_offset` 处；
+   **Status：Resolved**
+
+   校准：编译并上传后，在监控中启动时按 shift + Y，将校准后的值填写到 `motor_task.cpp` 中的 `zero_electric_offset` 处。
 
 2. 切换时崩溃？
 
-   在 `interface_task.cpp` 中将切换时的 `motor_task_.playHaptic(true);` 移除即可临时解决，实际原因待调查；
+   **Status：Resolved**
+
+   ~~在 `interface_task.cpp` 中将切换时的 `motor_task_.playHaptic(true);` 移除即可临时解决，实际原因待调查。~~
+
+   详情可以参考 [Reboot when the switch is toggled(On/Off Strong detent)](https://github.com/scottbez1/smartknob/issues/88)，原因是由于 Mac 的 Type-C 接口输出最大电流是 500mA，导致电机需要更大电流时失败重启，更换到 USB 5V 3.1A 插头上，可以解决该问题；
 
 3. `On/off Strong detent` 到中间时崩溃？
 
-   怀疑跟切换时崩溃是相同问题，先在 `interface_task.cpp` 中移除了 `On/off Strong detent` 这个模式，实际原因待调查；
+   **Status：Resolved**
+
+   ~~怀疑跟切换时崩溃是相同问题，先在 `interface_task.cpp` 中移除了 `On/off Strong detent` 这个模式，实际原因待调查。~~
+
+   解决方案参考切换时崩溃，是相同问题。
 
 4. 屏幕底座（ScreenPlatform）固定屏幕不稳问题？可能跟 3D 打印的精度有关系？
 
@@ -92,7 +102,7 @@ PCB 打样和 SMT 贴片都是在[嘉立创](https://www.jlc.com/)完成，当�
 
 ### 2.1 FreeRTOS
 
-Base 板上核心芯片使用的是 [T-Micro32 Plus](http://www.lilygo.cn/prod_view.aspx?TypeId=50063&Id=1091)，按照官方说法，其实就是一个 ESP32 芯片（功能完全一样），但是缩小了 45% 的面积。
+Base 板上核心芯片使用的是 [T-Micro32 Plus](http://www.lilygo.cn/prod_view.aspx?TypeId=50063&Id=1091)（8M Flash，2M PSRAM），按照官方说法，其实就是一个 ESP32 芯片（功能完全一样），但是缩小了 45% 的面积。
 
 而从 SmartKnob 的固件来看主要是使用的 Arduino 的开发框架，Arduino 和 ESP32 的关系，可以参考 [Arduino和ESP32他们到底是什么关系？](https://www.zhihu.com/question/458853667)
 
