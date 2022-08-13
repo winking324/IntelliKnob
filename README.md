@@ -76,7 +76,7 @@ PCB 打样和 SMT 贴片都是在[嘉立创](https://www.jlc.com/)完成，当�
 
    **Status：Resolved**
 
-   校准：编译并上传后，在监控中启动时按 shift + Y，将校准后的值填写到 `motor_task.cpp` 中的 `zero_electric_offset` 处。
+   校准：编译并上传后，启动时在 VSCode 控制台 Monitor 中按 shift + Y（控制台有提示，提示时要快点按，不然可能错过），将校准后的值填写到 `motor_task.cpp` 中的 `zero_electric_offset` 处，再次重新编译并上传，该问题解决。
 
 2. 切换时崩溃？
 
