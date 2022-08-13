@@ -98,6 +98,8 @@ Base 板上核心芯片使用的是 [T-Micro32 Plus](http://www.lilygo.cn/prod_v
 
 为了实现比较复杂的控制逻辑，使用 Arduino 顺序执行代码就比较捉襟见肘了，所以一般会采用有事件驱动能力的系统来进行支持，所以采用 Arduino + FreeRTOS 来实现，简单的介绍可以参考 [ARDUINO运行FREERTOS操作系统](https://www.freesion.com/article/9729559065/)。
 
+FreeRTOS 的使用可以参考 [API 文档](https://www.freertos.org/a00106.html 作者：云汉含星 https://www.bilibili.com/read/cv16005224/ 出处：bilibili)。
+
 ## 3 其他
 
 ### 3.1 CNC
