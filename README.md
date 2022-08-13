@@ -90,6 +90,14 @@ PCB 打样和 SMT 贴片都是在[嘉立创](https://www.jlc.com/)完成，当�
 
 初步想法是，在 PC 上实现一个软件，重新写一套对应的固件（IntelliKnob），然后通过蓝牙连接到 PC 上，进行一定功能的实现和控制等。
 
+### 2.1 FreeRTOS
+
+Base 板上核心芯片使用的是 [T-Micro32 Plus](http://www.lilygo.cn/prod_view.aspx?TypeId=50063&Id=1091)，按照官方说法，其实就是一个 ESP32 芯片（功能完全一样），但是缩小了 45% 的面积。
+
+而从 SmartKnob 的固件来看主要是使用的 Arduino 的开发框架，Arduino 和 ESP32 的关系，可以参考 [Arduino和ESP32他们到底是什么关系？](https://www.zhihu.com/question/458853667)
+
+为了实现比较复杂的控制逻辑，使用 Arduino 顺序执行代码就比较捉襟见肘了，所以一般会采用有事件驱动能力的系统来进行支持，所以采用 Arduino + FreeRTOS 来实现，简单的介绍可以参考 [ARDUINO运行FREERTOS操作系统](https://www.freesion.com/article/9729559065/)。
+
 ## 3 其他
 
 ### 3.1 CNC
