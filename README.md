@@ -1,6 +1,10 @@
 # IntelliKnob
 
-如何做一个有“意义”的智能旋钮呢？
+如何做一个有“意义”的智能旋钮呢？至少也要能连接电脑或者其他设备（例如说家居），提供一定的智能化功能，才能称得上“智能”，所以只是复刻一个 SmartKnob 只能玩几天，那就失去了它的价值。
+
+所以本项目在 SmartKnob 的硬件和固件的基础上，去实现一些有意义有价值的功能，让这个旋钮更加的智能化。
+
+Please use Google Translate for this document if necessary. <img src="Resources/doge.png" alt="cplusplus" height="30"/>
 
 ## 1 原型
 
