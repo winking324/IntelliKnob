@@ -20,7 +20,7 @@ PCB 打样和 SMT 贴片都是在[嘉立创](https://www.jlc.com/)完成，当�
 
   - Base，目前最新是 [v0.4](https://github.com/scottbez1/smartknob/releases/tag/releases%2Fview_base%2Fv0.4)
 
-  - View，目前最新是 [v0.2](https://github.com/scottbez1/smartknob/releases/tag/releases%2Fview_screen%2Fv0.2)
+  - View，目前最新是 [v0.2](https://github.com/scottbez1/smartknob/releases/tag/releases%2Fview_screen%2Fv0.2)，**注意厚度为 0.6mm**；
 
 * SMT 贴片，需要使用 BOM 和 BOM 坐标文件，大部分芯片嘉立创商城可以直接选购，部分缺货或者没有的可以从淘宝购买后邮寄：
   * TMC6300：电机驱动芯片
@@ -53,6 +53,7 @@ PCB 打样和 SMT 贴片都是在[嘉立创](https://www.jlc.com/)完成，当�
   1. 玻璃盖板，直径 39.5mm，厚 1mm（其实在 Bom 中有写具体型号，我没有注意询问别人时遭到了鄙视）；
   2. 3M 无痕双面胶，厚 2mm（用于固定 LCD 屏幕到 View 板上，不然有可能旋钮旋转过程中会碰到屏幕）；
   3. 电机端子 1.25mm 3P（电机默认有端子，看情况可以不需要）；
+  4. 游标卡尺；
 
 ### 1.5 制作过程
 
