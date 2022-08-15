@@ -26,7 +26,7 @@ PCB 打样和 SMT 贴片都是在 [嘉立创](https://www.jlc.com/) 完成，当
 
   - ViewScreen，目前最新是 [v0.2](https://github.com/scottbez1/smartknob/releases/tag/releases%2Fview_screen%2Fv0.2)，**注意厚度为 0.6mm**；
 
-* SMT 贴片，需要使用 BOM 和 BOM 坐标文件，大部分芯片嘉立创商城可以直接选购，部分缺货或者没有的可以从淘宝购买后邮寄：
+* SMT 贴片，需要使用 BOM 和 [BOM 坐标文件](https://github.com/winking324/IntelliKnobClient/issues/1)，大部分芯片嘉立创商城可以直接选购，部分缺货或者没有的可以从淘宝购买后邮寄：
   * TMC6300：电机驱动芯片
   * SK6812：LED
   * VEML7700：环境光传感器
@@ -100,6 +100,16 @@ PCB 打样和 SMT 贴片都是在 [嘉立创](https://www.jlc.com/) 完成，当
    解决方案参考切换时崩溃，是相同问题。
 
 4. 屏幕底座（ScreenPlatform）固定屏幕不稳问题？可能跟 3D 打印的精度有关系？
+
+### 1.8 价格
+
+1. 闲鱼买的电机，100 元/个；
+2. 嘉立创 PCB 打样 + SMT 贴片 + 零件（含邮寄），ViewBase 和 ViewScreen 每样 5 份，共 1789.43 元，357.89 元/套；
+3. 3D 打印，树脂，26 元/套；
+4. 玻璃盖板，2.75 元/片；
+5. 螺丝，OK 线，焊锡等这些买的比较多，实际上只用到很少一部分，整体也不贵，就不算价格了；
+
+所以整体上做一套的话，需要 486.64 元左右。
 
 ## 2 智能
 
