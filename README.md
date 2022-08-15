@@ -22,9 +22,9 @@ PCB 打样和 SMT 贴片都是在 [嘉立创](https://www.jlc.com/) 完成，当
 
 * PCB 打样，需要使用 Gerber 文件，分两部分：      
 
-  - Base，目前最新是 [v0.4](https://github.com/scottbez1/smartknob/releases/tag/releases%2Fview_base%2Fv0.4)
+  - ViewBase，目前最新是 [v0.4](https://github.com/scottbez1/smartknob/releases/tag/releases%2Fview_base%2Fv0.4)
 
-  - View，目前最新是 [v0.2](https://github.com/scottbez1/smartknob/releases/tag/releases%2Fview_screen%2Fv0.2)，**注意厚度为 0.6mm**；
+  - ViewScreen，目前最新是 [v0.2](https://github.com/scottbez1/smartknob/releases/tag/releases%2Fview_screen%2Fv0.2)，**注意厚度为 0.6mm**；
 
 * SMT 贴片，需要使用 BOM 和 BOM 坐标文件，大部分芯片嘉立创商城可以直接选购，部分缺货或者没有的可以从淘宝购买后邮寄：
   * TMC6300：电机驱动芯片
@@ -46,7 +46,7 @@ PCB 打样和 SMT 贴片都是在 [嘉立创](https://www.jlc.com/) 完成，当
 * 必需品：
   1. 万用表；
   2. 电烙铁、焊锡膏、焊锡；
-  3. View 板连接到 Base 板的连接线，线材要求非常细，需要从电机中心的小孔中穿过，可以用漆包线或者 30 AWG 的 OK 线，也可以用 8 芯的耳机线更方便；
+  3. ViewScreen 板连接到 ViewBase 板的连接线，线材要求非常细，需要从电机中心的小孔中穿过，可以用漆包线或者 30 AWG 的 OK 线，也可以用 8 芯的耳机线更方便；
   4. 应变片 BF350-3AA（每块板子需要 4 片）；
   5. 螺丝、螺母以及垫圈，需要以下几种类型（其实在 Bom 中有写具体型号，我没有注意询问别人时遭到了鄙视）：
      * 平头 m1.6x9（m1.6x9 不好买可以用 m1.6x10 加 1mm 垫圈）：用于固定 PCB，电机座（MountBase）和电机；
@@ -55,7 +55,7 @@ PCB 打样和 SMT 贴片都是在 [嘉立创](https://www.jlc.com/) 完成，当
   6. 透明胶带、502；
 * 有更好：
   1. 玻璃盖板，直径 39.5mm，厚 1mm（其实在 Bom 中有写具体型号，我没有注意询问别人时遭到了鄙视）；
-  2. 3M 无痕双面胶，厚 2mm（用于固定 LCD 屏幕到 View 板上，不然有可能旋钮旋转过程中会碰到屏幕）；
+  2. 3M 无痕双面胶，厚 2mm（用于固定 LCD 屏幕到 ViewScreen 板上，不然有可能旋钮旋转过程中会碰到屏幕）；
   3. 电机端子 1.25mm 3P（电机默认有端子，看情况可以不需要）；
   4. 游标卡尺；
 
@@ -63,12 +63,12 @@ PCB 打样和 SMT 贴片都是在 [嘉立创](https://www.jlc.com/) 完成，当
 
 制作主要分为几大步：
 
-1. 将应变片 BF350-3AA 粘贴到 Base 板上，并焊接，可以参考 [应变片安装教程](https://www.bilibili.com/video/BV1b64y1S7At)（先压平，贴上胶带，然后粘在对应位置上，掀开一边，滴上 502，再次压平，完全干了以后撕掉胶带）；
+1. 将应变片 BF350-3AA 粘贴到 ViewBase 板上，并焊接，可以参考 [应变片安装教程](https://www.bilibili.com/video/BV1b64y1S7At)（先压平，贴上胶带，然后粘在对应位置上，掀开一边，滴上 502，再次压平，完全干了以后撕掉胶带）；
 2. 将旋转模块（RotorSpacer）固定到电机上；
-3. 将 8 根 OK 线焊接到 View 板上（注意不要焊接到屏幕的那一侧，应该是焊接到电机的那一侧）；
-4. 组装 Base 板、电机座（MountBase）、电机、屏幕底座（ScreenPlatform）、屏幕，并将 8 根 OK 线穿过电机中间的小孔；
+3. 将 8 根 OK 线焊接到 ViewScreen 板上（注意不要焊接到屏幕的那一侧，应该是焊接到电机的那一侧）；
+4. 组装 ViewBase 板、电机座（MountBase）、电机、屏幕底座（ScreenPlatform）、屏幕，并将 8 根 OK 线穿过电机中间的小孔；
 5. 使用万用表测量每一根 OK 线，并焊接到 Base 板对应的位置上；
-6. 安装 Base 板的底座（BackPlate）；
+6. 安装 ViewBase 板的底座（BackPlate）；
 7. 安装其他外壳（Enclosure 和 Knob）；
 
 ### 1.6 刷固件
@@ -107,7 +107,7 @@ PCB 打样和 SMT 贴片都是在 [嘉立创](https://www.jlc.com/) 完成，当
 
 ### 2.1 FreeRTOS
 
-Base 板上核心芯片使用的是 [T-Micro32 Plus](http://www.lilygo.cn/prod_view.aspx?TypeId=50063&Id=1091)（8M Flash，2M PSRAM），按照官方说法，其实就是一个 ESP32 芯片（功能完全一样），但是缩小了 45% 的面积，所以可以参考 [ESP32 文档](https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/get-started/index.html) 进行开发。
+ViewBase 板上核心芯片使用的是 [T-Micro32 Plus](http://www.lilygo.cn/prod_view.aspx?TypeId=50063&Id=1091)（8M Flash，2M PSRAM），按照官方说法，其实就是一个 ESP32 芯片（功能完全一样），但是缩小了 45% 的面积，所以可以参考 [ESP32 文档](https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/get-started/index.html) 进行开发。
 
 而从 SmartKnob 的固件来看主要是使用的 Arduino 的开发框架，Arduino 和 ESP32 的关系，可以参考 [Arduino和ESP32他们到底是什么关系？](https://www.zhihu.com/question/458853667)
 
