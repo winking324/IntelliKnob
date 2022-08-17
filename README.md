@@ -146,7 +146,7 @@ FreeRTOS 的使用可以参考 [API 文档](https://www.freertos.org/a00106.html
 
 ### 2.3 OTA
 
-TODO
+蓝牙 BLE OTA 参考项目 [ESP32_BLE_OTA_Arduino](https://github.com/fbiego/ESP32_BLE_OTA_Arduino)（还没调通）。
 
 ## 3 其他
 
