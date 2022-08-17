@@ -133,7 +133,7 @@ FreeRTOS 的使用可以参考 [API 文档](https://www.freertos.org/a00106.html
 
 下面为 `partitions.csv` 对应 Flash 分区的示意图。
 
-![](resources/partitions.png)
+![](Resources/partitions.png)
 
 ### 2.3 OTA
 
