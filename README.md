@@ -115,6 +115,15 @@ PCB 打样和 SMT 贴片都是在 [嘉立创](https://www.jlc.com/) 完成，当
 
 初步想法是，在 PC 上实现一个软件，重新写一套对应的固件（IntelliKnob），然后通过蓝牙连接到 PC 上，进行一定功能的实现和控制等。
 
+可能不同的项目需要实现不同的功能，或者连接到不同的设备上进行控制，所以实现上尽可能的实现模块化，能够通过配置或者组合调用，实现各自的需要。
+
+一些可能需要用到的模块：
+
+* OTA：不需要一直连到电脑上去更新固件（可以通过 `factory` 固件去自由下载不同固件以实现不同功能？）；
+* 蓝牙：和不同设备之间通信实现功能；
+* 显示：能够通过设备控制，显示不同的内容（例如目前很多手表支持从手机上控制表盘显示），休眠和唤醒等；
+* LED：颜色的控制，以及休眠和唤醒等；
+
 ### 2.1 FreeRTOS
 
 ViewBase 板上核心芯片使用的是 [T-Micro32 Plus](http://www.lilygo.cn/prod_view.aspx?TypeId=50063&Id=1091)（8M Flash，2M PSRAM），按照官方说法，其实就是一个 ESP32 芯片（功能完全一样），但是缩小了 45% 的面积，所以可以参考 [ESP32 文档](https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/get-started/index.html) 进行开发。
