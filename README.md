@@ -148,6 +148,8 @@ FreeRTOS 的使用可以参考 [API 文档](https://www.freertos.org/a00106.html
 
 蓝牙 BLE OTA 参考项目 [ESP32_BLE_OTA_Arduino](https://github.com/fbiego/ESP32_BLE_OTA_Arduino)（还没调通）。
 
+OTA 具体的定义在 [ESP32 文档](https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/api-reference/system/ota.html) 有详细的描述。
+
 ## 3 其他
 
 ### 3.1 CNC
