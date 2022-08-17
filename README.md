@@ -125,6 +125,20 @@ ViewBase 板上核心芯片使用的是 [T-Micro32 Plus](http://www.lilygo.cn/pr
 
 FreeRTOS 的使用可以参考 [API 文档](https://www.freertos.org/a00106.html)。
 
+### 2.2 分区表
+
+这里遇到第一个问题，就是修改 `partitions.csv` 分区表，因为 T-Micro32 Plus 实际上是 8M Flash，而 PlatformIO 中使用的开发板 `esp32dev` 声明的是 4M Flash，所以如果修改 `partitions.csv` 并上传程序到开发板的话，开发板启动会失败报错。
+
+正确的做法是在 `platformio.ini` 文件中增加声明 `board_upload.flash_size = 8MB`，这样再次编译上传程序，可以正常运行。
+
+下面为 `partitions.csv` 对应 Flash 分区的示意图。
+
+![](resources/partitions.png)
+
+### 2.3 OTA
+
+TODO
+
 ## 3 其他
 
 ### 3.1 CNC
