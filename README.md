@@ -129,9 +129,9 @@ FreeRTOS 的使用可以参考 [API 文档](https://www.freertos.org/a00106.html
 
 这里遇到第一个问题，就是修改 `partitions.csv` 分区表，因为 T-Micro32 Plus 实际上是 8M Flash，而 PlatformIO 中使用的开发板 `esp32dev` 声明的是 4M Flash，所以如果修改 `partitions.csv` 并上传程序到开发板的话，开发板启动会失败报错。
 
-正确的做法是在 `platformio.ini` 文件中增加声明 `board_upload.flash_size = 8MB`，这样再次编译上传程序，可以正常运行。
+正确的做法是在 `platformio.ini` 文件中增加声明 `board_upload.flash_size = 8MB`，这样再次编译上传程序，可以正常运行，可以参考 [Platform options](https://docs.platformio.org/en/latest/projectconf/section_env_platform.html) 和 [esp32dev.json](https://github.com/platformio/platform-espressif32/blob/develop/boards/esp32dev.json)。
 
-下面为 `partitions.csv` 对应 Flash 分区的示意图。
+下面为 `partitions.csv` 对应 Flash 分区的示意图，分区表可以参考 [ESP32 文档](https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/api-guides/partition-tables.html)。
 
 ![](Resources/partitions.png)
 
