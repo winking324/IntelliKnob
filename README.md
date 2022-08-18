@@ -154,15 +154,23 @@ OTA 具体的定义在 [ESP32 文档](https://docs.espressif.com/projects/esp-id
 
 蓝牙 BLE OTA 中用到了 SPIFFS，在 `platform = espressif32@5.1.0` 会启动失败，错误原因 `flash format failed`。经过调查，需要配置 `board_build.flash_mode = qio` 才可以成功。
 
-## 3 其他
+## 3 Agent
 
-### 3.1 CNC
+Agent 目前准备用 Qt 来开发，这样其他平台能够比较好的移植。
+
+**注意：**安装 Qt 时，要在 `Additional Libraries` 中勾选 `Qt Connectivity`，否则蓝牙相关的模块不会被添加进来。
+
+![](Resources/install_qt.png)
+
+## 4 其他
+
+### 4.1 CNC
 
 默认使用塑料外壳，放在桌面上不固定的话，旋转旋钮容易晃动，可以考虑使用 CNC 雕刻的铝合金外壳。
 
 STL 转 STP 文件，可以参考 [FreeCAD 中STL格式转化为STP格式](https://www.bilibili.com/video/BV11v411q766/?vd_source=fd5720629e67b12f90593a5a072198bf)，Mac 中需要点视图 -> 工具台 -> part 显示“零件”到菜单栏上。
 
-### 3.2 软件
+### 4.2 软件
 
 * KiCad
 * FreeCAD
