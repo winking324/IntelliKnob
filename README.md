@@ -150,6 +150,10 @@ FreeRTOS 的使用可以参考 [API 文档](https://www.freertos.org/a00106.html
 
 OTA 具体的定义在 [ESP32 文档](https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/api-reference/system/ota.html) 有详细的描述。
 
+### 2.4 SPIFFS
+
+蓝牙 BLE OTA 中用到了 SPIFFS，在 `platform = espressif32@5.1.0` 会启动失败，错误原因 `flash format failed`。经过调查，需要配置 `board_build.flash_mode = qio` 才可以成功。
+
 ## 3 其他
 
 ### 3.1 CNC
