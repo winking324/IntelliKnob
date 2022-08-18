@@ -158,7 +158,7 @@ OTA 具体的定义在 [ESP32 文档](https://docs.espressif.com/projects/esp-id
 
 Agent 目前准备用 Qt 来开发，这样其他平台能够比较好的移植。
 
-**注意：**安装 Qt 时，要在 `Additional Libraries` 中勾选 `Qt Connectivity`，否则蓝牙相关的模块不会被添加进来。
+**注意：** 安装 Qt 时，要在 `Additional Libraries` 中勾选 `Qt Connectivity`，否则蓝牙相关的模块不会被添加进来。
 
 ![](Resources/install_qt.png)
 
