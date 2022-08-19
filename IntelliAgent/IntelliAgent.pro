@@ -13,8 +13,10 @@ macx {
     QMAKE_INFO_PLIST = Info.plist
 
     # Icon
-    # ICON = icon.icns
+#     ICON = icon.icns
 }
+
+include(gitversion.pri)
 
 SOURCES += \
     src/device_dialog.cpp \

@@ -19,7 +19,7 @@ enum class MenuItem {
 class TrayMenu : public QMenu {
   Q_OBJECT
  public:
-  TrayMenu(QWidget *parent);
+  explicit TrayMenu(QWidget *parent = nullptr);
 
  signals:
   void OnExit();

@@ -2,7 +2,36 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Our app uses bluetooth to find, connect and transfer data between different devices</string>
+    <key>LSUIElement</key>
+    <string>1</string>
+    <key>CFBundleExecutable</key>
+    <string>IntelliAgent</string>
+    <key>CFBundleGetInfoString</key>
+    <string>IntelliAgent for IntelliKnob.</string>
+    <key>CFBundleIdentifier</key>
+    <string>winking324.IntelliAgent</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>@BUILD_VERSION@</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>10.12</string>
+    <key>NSPrincipalClass</key>
+    <string>NSApplication</string>
+    <key>NSSupportsAutomaticGraphicsSwitching</key>
+    <true/>
+    <key>NSBluetoothAlwaysUsageDescription</key>
+	<string>IntelliAgent uses bluetooth to find, connect and transfer data between IntelliKnob.</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLName</key>
+            <string>IntelliAgent</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>IntelliAgent</string>
+            </array>
+        </dict>
+    </array>
 </dict>
 </plist>

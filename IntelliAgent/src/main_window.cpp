@@ -13,8 +13,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
   tray_icon_ = new QSystemTrayIcon(icon, this);
   tray_icon_->setContextMenu(tray_menu_);
   tray_icon_->show();
+
+  connect(tray_menu_, &TrayMenu::OnExit, this, &MainWindow::Exit);
 }
 
 MainWindow::~MainWindow() {}
+
+void MainWindow::Exit() { this->close(); }
 
 }  // namespace intelli_agent

@@ -10,7 +10,7 @@ namespace intelli_agent {
 class PreferencesDialog : public QDialog {
   Q_OBJECT
  public:
-  PreferencesDialog(QWidget *parent);
+  explicit PreferencesDialog(QWidget *parent = nullptr);
 
  private:
 };
