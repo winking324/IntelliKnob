@@ -26,7 +26,7 @@ PCB 打样和 SMT 贴片都是在 [嘉立创](https://www.jlc.com/) 完成，当
 
   - ViewScreen，目前最新是 [v0.2](https://github.com/scottbez1/smartknob/releases/tag/releases%2Fview_screen%2Fv0.2)，**注意厚度为 0.6mm**；
 
-* SMT 贴片，需要使用 BOM 和 [BOM 坐标文件](https://github.com/winking324/IntelliKnobClient/issues/1)，大部分芯片嘉立创商城可以直接选购，部分缺货或者没有的可以从淘宝购买后邮寄：
+* SMT 贴片，需要使用 [BOM 文件](https://github.com/winking324/IntelliKnob/issues/3) 和 [BOM 坐标文件](https://github.com/winking324/IntelliKnobClient/issues/1)，大部分芯片嘉立创商城可以直接选购，部分缺货或者没有的可以从淘宝购买后邮寄：
   * TMC6300：电机驱动芯片
   * SK6812：LED
   * VEML7700：环境光传感器
