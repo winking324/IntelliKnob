@@ -4,8 +4,9 @@
 #pragma once
 
 #include <QMainWindow>
+#include <QSystemTrayIcon>
 
-#include "preferences_dialog.h"
+#include "tray_menu.h"
 
 namespace intelli_agent {
 
@@ -17,7 +18,8 @@ class MainWindow : public QMainWindow {
   ~MainWindow();
 
  private:
-  PreferencesDialog *preferences_dialog_;
+  QSystemTrayIcon *tray_icon_;
+  TrayMenu *tray_menu_;
 };
 
 }  // namespace intelli_agent

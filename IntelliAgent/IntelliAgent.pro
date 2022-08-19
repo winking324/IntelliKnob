@@ -17,12 +17,14 @@ macx {
 }
 
 SOURCES += \
+    src/device_dialog.cpp \
     src/main.cpp \
     src/main_window.cpp \
     src/preferences_dialog.cpp \
     src/tray_menu.cpp
 
 HEADERS += \
+    src/device_dialog.h \
     src/main_window.h \
     src/preferences_dialog.h \
     src/tray_menu.h

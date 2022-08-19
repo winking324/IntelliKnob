@@ -5,6 +5,9 @@
 
 namespace intelli_agent {
 
-PreferencesDialog::PreferencesDialog(QWidget *parent) : QDialog(parent) {}
+PreferencesDialog::PreferencesDialog(QWidget *parent) : QDialog(parent) {
+  setAttribute(Qt::WA_DeleteOnClose);
+  setWindowTitle("Preferences");
+}
 
 }  // namespace intelli_agent
