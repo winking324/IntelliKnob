@@ -19,15 +19,20 @@ macx {
 include(gitversion.pri)
 
 SOURCES += \
+    src/bluetooth_connection.cpp \
     src/device_dialog.cpp \
     src/main.cpp \
     src/main_window.cpp \
+    src/preferences.cpp \
     src/preferences_dialog.cpp \
     src/tray_menu.cpp
 
 HEADERS += \
+    src/bluetooth_connection.h \
+    src/bluetooth_protocol.h \
     src/device_dialog.h \
     src/main_window.h \
+    src/preferences.h \
     src/preferences_dialog.h \
     src/tray_menu.h
 
