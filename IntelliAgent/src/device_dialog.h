@@ -1,4 +1,8 @@
 // Copyright (c) winking324
+// Bluetooth Connect Dialog
+// 1. List connected devices on the top; TODO
+// 2. Auto scan new devices on dialog open; TODO
+// 3. Double click to connect new device; TODO
 //
 
 #pragma once
