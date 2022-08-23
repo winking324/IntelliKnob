@@ -20,6 +20,7 @@ include(gitversion.pri)
 
 SOURCES += \
     src/bluetooth_connection.cpp \
+    src/circle_progress_bar.cpp \
     src/device_dialog.cpp \
     src/main.cpp \
     src/main_window.cpp \
@@ -30,6 +31,7 @@ SOURCES += \
 HEADERS += \
     src/bluetooth_connection.h \
     src/bluetooth_protocol.h \
+    src/circle_progress_bar.h \
     src/device_dialog.h \
     src/main_window.h \
     src/preferences.h \

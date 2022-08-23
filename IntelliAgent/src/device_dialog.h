@@ -1,8 +1,10 @@
 // Copyright (c) winking324
 // Bluetooth Connect Dialog
 // 1. List connected devices on the top; TODO
-// 2. Auto scan new devices on dialog open; TODO
+// 2. Auto scan new devices on dialog open;
 // 3. Double click to connect new device; TODO
+// 4. Order devices by rssi; TODO
+// 5. Update devices(rssi update, insert or remove); TODO
 //
 
 #pragma once
@@ -10,9 +12,12 @@
 #include <QBluetoothDeviceDiscoveryAgent>
 #include <QBluetoothDeviceInfo>
 #include <QDialog>
+#include <QHash>
 #include <QPointer>
-#include <QPushButton>
+#include <QString>
 #include <QTableWidget>
+
+#include "circle_progress_bar.h"
 
 namespace intelli_agent {
 
@@ -38,8 +43,9 @@ class DeviceDialog : public QDialog {
   void ShowDeviceMenu(const QPoint &pos);
 
  private:
-  QPushButton *scan_button_;
   QTableWidget *scanning_widget_;
+  CircleProgressBar *progress_bar_;
+  QHash<QString, QBluetoothDeviceInfo> devices_;
 
   QPointer<QBluetoothDeviceDiscoveryAgent> discovery_agent_;
 };
