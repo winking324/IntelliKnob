@@ -8,7 +8,8 @@
 namespace intelli_agent {
 
 struct Preferences {
-  QString device;
+  uint32_t ble_max_scan_count = 5;
+  QString connected_device_uuid;
 };
 
 }  // namespace intelli_agent

@@ -36,6 +36,7 @@ HEADERS += \
     src/main_window.h \
     src/preferences.h \
     src/preferences_dialog.h \
+    src/singleton.h \
     src/tray_menu.h
 
 RESOURCES += \

@@ -11,13 +11,19 @@
 #include <QMenu>
 #include <QMessageBox>
 #include <QPushButton>
+#include <QSet>
 #include <QTableWidgetItem>
 #include <QTimer>
 #include <QVBoxLayout>
 
+#include "preferences.h"
+#include "singleton.h"
+
 namespace intelli_agent {
 
 DeviceDialog::DeviceDialog(QWidget *parent) : QDialog(parent) {
+  scan_count_ = Singleton<Preferences>::Instance()->ble_max_scan_count;
+
   setAttribute(Qt::WA_DeleteOnClose);
   setWindowTitle("Device");
 
@@ -38,11 +44,10 @@ DeviceDialog::DeviceDialog(QWidget *parent) : QDialog(parent) {
   layout->addWidget(scanning_widget_);
 
   QHBoxLayout *h_layout = new QHBoxLayout();
-  progress_bar_ = new CircleProgressBar(24, this);
-  h_layout->addWidget(progress_bar_);
-
   QDialogButtonBox *buttons =
       new QDialogButtonBox(QDialogButtonBox::Cancel, this);
+  progress_bar_ = new CircleProgressBar(20, this);
+  h_layout->addWidget(progress_bar_);
   h_layout->addWidget(buttons);
 
   layout->addLayout(h_layout);
@@ -82,8 +87,7 @@ void DeviceDialog::ScanDevice() {
 }
 
 void DeviceDialog::ScanError(QBluetoothDeviceDiscoveryAgent::Error error) {
-  qInfo() << "BLE discovery error[" << error
-          << "]: " << discovery_agent_->errorString();
+  qInfo() << "BLE discovery error: " << error;
   progress_bar_->hide();
   QMessageBox::warning(this, "IntelliAgent",
                        "Scan Error: " + discovery_agent_->errorString(),
@@ -93,14 +97,35 @@ void DeviceDialog::ScanError(QBluetoothDeviceDiscoveryAgent::Error error) {
 void DeviceDialog::ScanFinished() {
   qInfo() << "BLE discovery finished";
   progress_bar_->hide();
-  QTimer::singleShot(10 * 1000, this, &DeviceDialog::ScanDevice);
+  if (scan_count_ > 0 && --scan_count_ != 0) {
+    QTimer::singleShot(10 * 1000, this, &DeviceDialog::ScanDevice);
+  }
 
-  // TODO(winking324): remove devices not in
-  // discovery_agent_->discoveredDevices();
+  QSet<QString> discoverd_device_uuids;
+  auto discoverd_devices = discovery_agent_->discoveredDevices();
+  for (auto i = discoverd_devices.begin(); i != discoverd_devices.end(); ++i) {
+    discoverd_device_uuids.insert(i->deviceUuid().toString());
+  }
+
+  erase_if(devices_, [&](decltype(devices_)::iterator device) {
+    if (discoverd_device_uuids.find(device.key()) !=
+        discoverd_device_uuids.end()) {
+      return false;
+    }
+
+    auto items = scanning_widget_->findItems(device.value().name(),
+                                             Qt::MatchFlag::MatchExactly);
+    for (auto i = items.begin(); i != items.end(); ++i) {
+      scanning_widget_->removeRow((*i)->row());
+    }
+    qInfo() << "BLE remote device: " << device->name() << " " << items.size();
+    return true;
+  });
 }
 
 void DeviceDialog::AddDevice(const QBluetoothDeviceInfo &info) {
   if (info.name().isEmpty()) return;
+
   auto uuid = info.deviceUuid().toString();
   if (devices_.find(uuid) != devices_.end()) {
     return;
@@ -113,18 +138,10 @@ void DeviceDialog::AddDevice(const QBluetoothDeviceInfo &info) {
   int row = scanning_widget_->rowCount() - 1;
 
   QTableWidgetItem *name_item = new QTableWidgetItem(info.name());
-  //  QTableWidgetItem *uuid_item =
-  //      new QTableWidgetItem(info.deviceUuid().toString());
-
   name_item->setFlags(name_item->flags() & ~Qt::ItemIsEditable);
   name_item->setToolTip(info.name());
-  //  uuid_item->setFlags(uuid_item->flags() & ~Qt::ItemIsEditable);
-
-  //  uuid_item->setToolTip(info.deviceUuid().toString());
-
   scanning_widget_->setItem(row, 0, name_item);
   scanning_widget_->verticalHeader()->hide();
-  //  devices_widget_->setItem(row, 1, uuid_item);
 }
 
 void DeviceDialog::Connect(bool checked) {

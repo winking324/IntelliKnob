@@ -5,6 +5,7 @@
 // 3. Double click to connect new device; TODO
 // 4. Order devices by rssi; TODO
 // 5. Update devices(rssi update, insert or remove); TODO
+// 6. Device with same name? TODO
 //
 
 #pragma once
@@ -43,6 +44,7 @@ class DeviceDialog : public QDialog {
   void ShowDeviceMenu(const QPoint &pos);
 
  private:
+  uint32_t scan_count_;
   QTableWidget *scanning_widget_;
   CircleProgressBar *progress_bar_;
   QHash<QString, QBluetoothDeviceInfo> devices_;
