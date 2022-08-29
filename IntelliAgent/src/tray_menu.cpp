@@ -17,10 +17,10 @@ using MenuItems = std::map<MenuItem, QPair<QString, MenuItemInitFunc>>;
 
 TrayMenu::TrayMenu(QWidget *parent) : QMenu(parent) {
   static const MenuItems kMenuItems = {
-      {MenuItem::kPreferences, {"Preferences", &TrayMenu::InitPreferences}},
-      {MenuItem::kDevice, {"Device", &TrayMenu::InitDevice}},
-      {MenuItem::kAbout, {"About", &TrayMenu::InitAbout}},
-      {MenuItem::kExit, {"Exit", &TrayMenu::InitExit}},
+      {MenuItem::kPreferences, {"设置", &TrayMenu::InitPreferences}},
+      {MenuItem::kDevice, {"蓝牙", &TrayMenu::InitDevice}},
+      {MenuItem::kAbout, {"关于", &TrayMenu::InitAbout}},
+      {MenuItem::kExit, {"退出", &TrayMenu::InitExit}},
 
   };
 
