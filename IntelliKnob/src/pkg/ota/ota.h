@@ -6,7 +6,8 @@
 
 #include "ble_ota_dfu.hpp"
 
-namespace intelliknob {
+namespace intelli_knob {
+inline namespace pkg {
 namespace ota {
 
 class Ota {
@@ -18,4 +19,5 @@ class Ota {
 };
 
 }  // namespace ota
-}  // namespace intelliknob
+}  // namespace pkg
+}  // namespace intelli_knob

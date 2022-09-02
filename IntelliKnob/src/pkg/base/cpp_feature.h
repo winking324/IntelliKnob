@@ -4,7 +4,8 @@
 
 #pragma once  // NOLINT(build/header_guard)
 
-namespace intelliknob {
+namespace intelli_knob {
+inline namespace pkg {
 namespace base {
 
 class NonCopyOrMovable {
@@ -32,4 +33,5 @@ class Singleton : private NonCopyOrMovable {
 };
 
 }  // namespace base
-}  // namespace intelliknob
+}  // namespace pkg
+}  // namespace intelli_knob

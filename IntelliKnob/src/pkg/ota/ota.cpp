@@ -4,10 +4,12 @@
 
 #include "pkg/ota/ota.h"
 
-namespace intelliknob {
+namespace intelli_knob {
+inline namespace pkg {
 namespace ota {
 
 void Ota::Setup(const String &name) { ota_dfu_ble_.begin(name); }
 
 }  // namespace ota
-}  // namespace intelliknob
+}  // namespace pkg
+}  // namespace intelli_knob
