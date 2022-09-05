@@ -12,7 +12,7 @@ Please use Google Translate for this document if necessary. <img src="Resources/
 
 ### 1.1 无刷电机
 
-第一步需要先搞定电机，由于 SmartKnob 里面用到的电机已经停产，几乎已经买不到，所以换电机影响就非常大了，例如说后续各种尺寸全都要更改。
+第一步需要先搞定电机，由于 SmartKnob 里面用到的电机（Wanzhida OT-EM3215BLDC）已经停产，几乎已经买不到，所以换电机影响就非常大了，例如说后续各种尺寸全都要更改。
 
 详情可以参考 [替换的方案](https://github.com/scottbez1/smartknob/wiki/Motor-Status)。
 
